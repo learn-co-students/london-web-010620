@@ -10,14 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_17_115658) do
+ActiveRecord::Schema.define(version: 2020_01_20_114932) do
 
-  create_table "places", force: :cascade do |t|
-    t.string "address"
-    t.integer "num_beds"
-    t.boolean "available"
+  create_table "authors", force: :cascade do |t|
     t.string "name"
-    t.string "infested"
+  end
+
+  create_table "autographs", force: :cascade do |t|
+    t.integer "fan_id"
+    t.integer "author_id"
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.string "genre"
+    t.integer "author_id"
+  end
+
+  create_table "fans", force: :cascade do |t|
+    t.string "name"
   end
 
 end
