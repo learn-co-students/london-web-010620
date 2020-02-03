@@ -1,0 +1,13 @@
+
+<%= form_for(@pet) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :age %>
+  <%= f.number_field :age %><br>
+
+  <%= f.label :user %>
+  <%= f.collection_select(:user_id, User.all, :id, :username) %><br>
+
+  <%= f.submit %>
+<% end %>
