@@ -17,14 +17,16 @@ class PetsController < ApplicationController
   end
 
   def create
+    # Create pet here
     @pet = Pet.create(pet_params)
-    redirect_to @pet
+    redirect_to pets_path
   end
 
   def update
     @pet = Pet.find(params[:id])
+    # Update pet here
     @pet.update(pet_params)
-    redirect_to @pet
+    redirect_to pet_path(@pet.id)
   end
 
   def destroy
@@ -37,6 +39,5 @@ class PetsController < ApplicationController
   def pet_params
     params.require(:pet).permit(:name, :age, :user_id)
   end
-
 
 end

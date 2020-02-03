@@ -7,24 +7,31 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create([
   {
-    username: "RobbStark"
+    username: "RobbStark",
+    email: "kinginnorth@winterfell.com"
   },
   {
-    username: "SansaStark"
+    username: "SansaStark",
+    email: "littlebird@theeyrie.com"
   },
   {
-    username: "AryaStark"
+    username: "AryaStark",
+    email: "noone@nowhere.com"
   },
   {
-    username: "BranStark"
+    username: "BrandonStark",
+    email: "3eyedcrow@beyondthewall.com"
   },
   {
-    username: "RickonStark"
+    username: "RickonStark",
+    email: "annoying@whocares.com"
   },
   {
-    username: "JonSnow"
-  }
-  ])
+    username: "JonSnow",
+    email: "lordsnow@thewall.com"
+  },
+])
+
 Pet.create([
   {
     name: "Grey Wind",
