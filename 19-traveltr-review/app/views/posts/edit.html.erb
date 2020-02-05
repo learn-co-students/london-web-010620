@@ -1,0 +1,19 @@
+<%= form_with model:@post do |f|%>
+
+<%= f.collection_select :blogger_id, Blogger.all, :id, :name %>
+<%= f.collection_select :destination_id, Destination.all, :id, :name %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+<%= f.label :content %>
+<%= f.text_area :content %>
+
+<%= f.submit %>
+<% end %>
+<% if flash.notice %>
+    <% flash.notice.each do |msg| %>
+
+    <h3 style="color: red;">
+        <%= msg %>
+    </h3>
+    <% end %>
+<% end %>

@@ -1,0 +1,7 @@
+<h1>Name:</h1> <%= @dest.name %>
+<h2>recent posts:</h2> 
+<% @dest.recent_posts.each do |post| %>
+    <%= post.title%>
+
+<% end %>
+<%= link_to "featured post", post_path(@dest.featured_post)%>
