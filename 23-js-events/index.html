@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>events</title>
+    <style>
+      body {
+        max-width: 700px;
+        margin: auto;
+        background-color: aliceblue;
+        font-family: sans-serif;
+        font-size: 20pt;
+        height: 200vh;
+      }
+      button,
+      input[type="submit"] {
+        font-size: 20pt;
+        background: pink;
+      }
+      input {
+        font-size: 20pt;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <ul>
+        <li>
+          <text>Meow</text>
+          <button class="delete">Delete</button>
+        </li>
+        <li>
+          <text>Woof</text>
+          <button class="delete">Delete</button>
+        </li>
+        <li>
+          <text>Quack</text>
+          <button class="delete">Delete</button>
+        </li>
+        <li>
+          <input placeholder="Noise here" style="display: unset;" />
+          <button>New noise</button>
+        </li>
+      </ul>
+    </div>
+    <form>
+      <input type="text" name="firstname" placeholder="First name" />
+      <input type="text" name="lastname" placeholder="Last name" />
+      <input type="text" name="middlename" placeholder="Middle name" />
+      <input type="text" name="nickname" placeholder="Nickname" />
+      <input type="submit" value="Submit your names!" />
+    </form>
+    <div>counter <span id="counter">0</span></div>
+    <div>likes <span id="likes">0</span></div>
+    <script src="index.js"></script>
+  </body>
+</html>
