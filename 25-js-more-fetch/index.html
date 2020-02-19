@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Netflix</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: sans-serif;
+        background: rgb(26, 26, 26);
+      }
+      .title {
+        font-size: 3em;
+        color: rgb(192, 0, 0);
+        text-transform: uppercase;
+        text-align: center;
+      }
+      main {
+        max-width: 800px;
+        margin: auto;
+        background: #0000004f;
+      }
+      .titles-container {
+        color: white;
+        padding: 1em;
+        border-top: 1px solid #ffffff59;
+      }
+      .titles-container > div {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .media {
+        background: #80808030;
+        padding: 0.5em;
+      }
+      .media > h3 {
+        margin: 0;
+      }
+      .media > p {
+        margin: 0.5em 0;
+      }
+      .media > .rating {
+        color: yellow;
+      }
+      .media > .genres {
+        color: darkgrey;
+        font-size: 0.9em;
+      }
+      form {
+        color: white;
+        padding: 1em;
+      }
+      input[type="submit"] {
+        color: black;
+        background: #c00000;
+        padding: 0.5em;
+        font-weight: bold;
+        font-size: 1em;
+      }
+      input {
+        font-size: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="title">netflix</div>
+      <form>
+        <p>Add a title to Netflix</p>
+        <input type="text" placeholder="Title" name="title" />
+        <input type="number" placeholder="Rating" name="rating" step="0.1" />
+        <input type="text" placeholder="Genres" name="genres" />
+        <input type="url" placeholder="Image URL" name="img_url" />
+
+        <input type="submit" />
+      </form>
+      <div class="titles-container">
+        <h2>Films</h2>
+        <div id="films"></div>
+      </div>
+      <div class="titles-container">
+        <h2>TV</h2>
+        <div id="tv"></div>
+      </div>
+    </main>
+    <script src="API.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
