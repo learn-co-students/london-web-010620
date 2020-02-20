@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>my js todo list</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        max-width: 700px;
+        margin: auto;
+        background: darkkhaki;
+      }
+      #tasks {
+        background: #8080804d;
+        color: white;
+      }
+      #tasks > div {
+        padding: 1em;
+        border: solid black 1px;
+        border-radius: 0.5em;
+        margin-bottom: 1em;
+        background: #8080804d;
+        cursor: pointer;
+        transition: all 0.1s;
+      }
+      #tasks > div:hover {
+        box-shadow: 0 0 2em rgba(0, 0, 0, 0.5);
+      }
+      #tasks > div.completed {
+        text-decoration: line-through;
+        opacity: 0.5;
+      }
+      form {
+        padding: 1em;
+        background: #0080005c;
+        border-radius: 0.5em;
+        margin-bottom: 1em;
+        border: solid black 1px;
+      }
+      input[type="submit"] {
+        background: greenyellow;
+        padding: 0.25em;
+        width: 10em;
+        font-size: 1em;
+        cursor: pointer;
+      }
+      input[type="text"] {
+        font-size: 1em;
+        width: calc(100% - 21em);
+      }
+      select {
+        width: 10em;
+        font-size: 1em;
+      }
+      span {
+        display: block;
+        float: right;
+        background: #4f5b347a;
+        padding: 0.5em;
+        transform: translateY(-0.5em);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My tasks</h1>
+    <form>
+      <input type="text" name="text" />
+      <select name="priority">
+        <option value="1">High</option>
+        <option value="2">Mid</option>
+        <option value="3">Low</option>
+      </select>
+      <input type="submit" value="Add task" />
+    </form>
+    <div id="tasks"></div>
+    <script src="index.js"></script>
+  </body>
+</html>
