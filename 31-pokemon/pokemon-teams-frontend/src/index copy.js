@@ -1,3 +1,19 @@
+const corrigible = {
+  createElement: (tag, { innerText, className, onClick }) => {
+    const element = document.createElement(tag);
+
+    if (innerText) element.innerText = innerText;
+    if (className) element.className = className;
+    if (onClick) {
+      element.addEventListener("click", onClick);
+    }
+
+    return element;
+  }
+};
+
+// React.createElement
+
 const mainContainer = document.querySelector("main");
 
 const API_ENDPOINT = "http://localhost:3000";
@@ -5,18 +21,19 @@ const TRAINERS_URL = `${API_ENDPOINT}/trainers`;
 const POKEMONS_URL = `${API_ENDPOINT}/pokemons`;
 
 const simpleGet = url => fetch(url).then(res => res.json());
+const simplePost = (url, obj) =>
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body: JSON.stringify(obj)
+  }).then(res => res.json());
 
 const API = {
   getTrainers: () => simpleGet(TRAINERS_URL),
-  postPokemon: trainer_id =>
-    fetch(POKEMONS_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify({ trainer_id })
-    }).then(res => res.json()),
+  postPokemon: trainer_id => simplePost(POKEMONS_URL, { trainer_id }),
   deletePokemon: pokemon =>
     fetch(`${POKEMONS_URL}/${pokemon.id}`, { method: "DELETE" })
 };
@@ -30,18 +47,15 @@ const releasePokemon = (pokemon, listItem, callback) => {
 
 const renderPokemonIntoList = (pokemon, list, releaseCallback) => {
   // <li>Jacey (Kakuna) <button class="release" data-pokemon-id="140">Release</button></li>
-  const listItem = document.createElement("li");
+  const listItem = corrigible.createElement("li", {
+    innerText: `${pokemon.nickname} (${pokemon.species})`
+  });
 
-  listItem.innerText = `${pokemon.nickname} (${pokemon.species})`;
-
-  const releaseButton = document.createElement("button");
-
-  releaseButton.addEventListener("click", () =>
-    releasePokemon(pokemon, listItem, releaseCallback)
-  );
-
-  releaseButton.className = "release";
-  releaseButton.innerText = "Release";
+  const releaseButton = corrigible.createElement("button", {
+    innerText: "Release",
+    className: "release",
+    onClick: () => releasePokemon(pokemon, listItem, releaseCallback)
+  });
 
   listItem.append(releaseButton);
 
