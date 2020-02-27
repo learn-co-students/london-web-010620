@@ -1,0 +1,7 @@
+#quote-list {
+  padding: 20px;
+}
+
+button:disabled {
+  opacity: 0.2;
+}
