@@ -1,10 +1,21 @@
 import React from "react";
 
 class Totaliser extends React.Component {
+  constructor() {
+    super();
+
+    console.log("totaliser", "constructor");
+  }
+
   state = {
     increase: false,
     decrease: false
   };
+
+  componentDidMount() {
+    console.log("totaliser did mount");
+  }
+
   componentDidUpdate(prevProps) {
     if (prevProps.total < this.props.total - 50) {
       this.setState({
@@ -20,10 +31,12 @@ class Totaliser extends React.Component {
   }
 
   componentWillUnmount() {
+    console.log(this.timeout);
     clearTimeout(this.timeout);
   }
 
   render() {
+    console.log("totaliser", "render");
     return (
       <div
         className={`totaliser ${

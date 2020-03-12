@@ -11,9 +11,25 @@ const emptyWorkout = () => ({
 });
 
 class WorkoutsForm extends React.Component {
+  constructor() {
+    super();
+
+    console.log("workoutsform", "constructor");
+  }
   state = {
     workouts: [{ ...emptyWorkout() }]
   };
+
+  componentDidMount() {
+    console.log("workoutsform did mount");
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps !== this.props || prevState !== this.state) {
+      console.log("somethign actually did change");
+    }
+    console.log("workouts form did update");
+  }
 
   submit = event => {
     event.preventDefault();
@@ -88,6 +104,7 @@ class WorkoutsForm extends React.Component {
 
   render() {
     const { workouts } = this.state;
+    console.log("workoutsform", "render");
     return (
       <div>
         <h1>Create workouts</h1>
